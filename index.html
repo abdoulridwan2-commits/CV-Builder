@@ -1,44 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cv bulder</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-    <h1>CV Builder</h1>
-    <p>Créez votre CV professionnel facilement</p>
-</header>
+      <h1>CV Builder</h1>
+      <p>Créez votre CV professionnel facilement</p>
+    </header>
 
-<main>
-
-    <section class="formulaire">
+    <main>
+      <section class="formulaire">
+        <h2>Mes informations</h2>
         <h2>Mes informations</h2>
 
         <label for="nom">Nom complet</label>
-        <input type="text" id="nom" placeholder="Ex : Abdoulaye Ridwan">
+        <input type="text" id="nom" placeholder="Ex : Abdoulaye Ridwan" />
 
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Ex : exemple@gmail.com">
+        <input type="email" id="email" placeholder="Ex : exemple@gmail.com" />
 
         <label for="telephone">Téléphone</label>
-        <input type="tel" id="telephone" placeholder="Ex : +228 XX XX XX XX">
-    </section>
+        <input type="tel" id="telephone" placeholder="Ex : +228 XX XX XX XX" />
 
-    <section class="apercu">
+        <label for="profil">Profil</label>
+        <textarea
+          id="profil"
+          placeholder="Présentez-vous en quelques lignes"
+        ></textarea>
+
+        <h3>Formation</h3>
+
+        <label for="formation">Formation</label>
+        <input
+          type="text"
+          id="formation"
+          placeholder="Ex : Licence en Géographie"
+        />
+
+        <label for="ecole">Établissement</label>
+        <input type="text" id="ecole" placeholder="Ex : Université de Kara" />
+
+        <h3>Compétences</h3>
+
+        <label for="competences">Compétences</label>
+        <textarea
+          id="competences"
+          placeholder="Ex : HTML, CSS, JavaScript"
+        ></textarea>
+
+        <h3>Expérience</h3>
+
+        <label for="experience">Expérience professionnelle</label>
+        <textarea
+          id="experience"
+          placeholder="Décrivez votre expérience"
+        ></textarea>
+
+        <button type="button">Générer mon CV</button>
+      </section>
+
+      <section class="apercu">
         <h2>Aperçu du CV</h2>
 
         <div class="cv">
-            <h1>Votre nom</h1>
-            <p>Votre email</p>
-            <p>Votre téléphone</p>
+          <h1>Votre nom</h1>
+          <p>Votre email</p>
+          <p>Votre téléphone</p>
         </div>
-    </section>
-
-</main>
-    
-</body>
-<script src="script.js"></script>
+      </section>
+    </main>
+  </body>
+  <script src="script.js"></script>
 </html>
