@@ -104,3 +104,13 @@ main {
   margin-bottom: 8px;
   color: #555;
 }
+
+.cv h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.cv p {
+  line-height: 1.6;
+}

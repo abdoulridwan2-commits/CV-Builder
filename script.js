@@ -18,3 +18,10 @@ const previewTelephone = document.getElementById("previewTelephone");
 telephoneInput.addEventListener("input", function () {
   previewTelephone.textContent = telephoneInput.value || "Votre téléphone";
 });
+
+const profilInput = document.getElementById("profil");
+const previewProfil = document.getElementById("previewProfil");
+
+profilInput.addEventListener("input", function () {
+  previewProfil.textContent = profilInput.value || "Votre profil professionnel";
+});
