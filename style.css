@@ -87,3 +87,20 @@ main {
 .formulaire button:hover {
   background-color: #1d4ed8;
 }
+
+.cv {
+  background-color: #ffffff;
+  padding: 30px;
+  min-height: 500px;
+  border: 1px solid #ddd;
+}
+
+.cv h1 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.cv p {
+  margin-bottom: 8px;
+  color: #555;
+}
