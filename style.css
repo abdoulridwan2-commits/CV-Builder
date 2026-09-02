@@ -71,3 +71,19 @@ main {
   min-height: 100px;
   resize: vertical;
 }
+
+.formulaire button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formulaire button:hover {
+  background-color: #1d4ed8;
+}
