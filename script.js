@@ -25,3 +25,17 @@ const previewProfil = document.getElementById("previewProfil");
 profilInput.addEventListener("input", function () {
   previewProfil.textContent = profilInput.value || "Votre profil professionnel";
 });
+
+const formationInput = document.getElementById("formation");
+const previewFormation = document.getElementById("previewFormation");
+
+formationInput.addEventListener("input", function () {
+  previewFormation.textContent = formationInput.value || "Votre formation";
+});
+
+const ecoleInput = document.getElementById("ecole");
+const previewEcole = document.getElementById("previewEcole");
+
+ecoleInput.addEventListener("input", function () {
+  previewEcole.textContent = ecoleInput.value || "Votre établissement";
+});
