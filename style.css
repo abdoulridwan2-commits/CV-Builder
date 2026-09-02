@@ -32,3 +32,42 @@ main {
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
+
+.formulaire,
+.apercu {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.formulaire h2,
+.apercu h2 {
+  margin-bottom: 20px;
+}
+
+.formulaire h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.formulaire label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.formulaire input,
+.formulaire textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.formulaire textarea {
+  min-height: 100px;
+  resize: vertical;
+}
