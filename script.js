@@ -99,3 +99,11 @@ boutonGenerer.addEventListener("click", function () {
 
   alert("Votre CV a été généré avec succès !");
 });
+
+// TÉLÉCHARGER LE CV EN PDF
+
+const boutonImprimer = document.getElementById("imprimerCV");
+
+boutonImprimer.addEventListener("click", function () {
+  window.print();
+});

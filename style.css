@@ -169,3 +169,33 @@ main {
   border-radius: 50%;
   margin-bottom: 15px;
 }
+
+@media print {
+  body {
+    background-color: white;
+  }
+
+  header,
+  .formulaire,
+  .apercu > h2 {
+    display: none;
+  }
+
+  main {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  .apercu {
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .cv {
+    border: none;
+    box-shadow: none;
+    width: 100%;
+    min-height: auto;
+  }
+}
