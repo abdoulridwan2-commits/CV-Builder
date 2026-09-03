@@ -107,3 +107,26 @@ const boutonImprimer = document.getElementById("imprimerCV");
 boutonImprimer.addEventListener("click", function () {
   window.print();
 });
+
+// RÉINITIALISER LE CV
+
+const boutonReset = document.getElementById("resetCV");
+
+boutonReset.addEventListener("click", function () {
+  document
+    .querySelectorAll(".formulaire input, .formulaire textarea")
+    .forEach(function (champ) {
+      champ.value = "";
+    });
+
+  previewNom.textContent = "Votre nom";
+  previewEmail.textContent = "Votre email";
+  previewTelephone.textContent = "Votre téléphone";
+  previewProfil.textContent = "Votre profil professionnel";
+  previewFormation.textContent = "Votre formation";
+  previewEcole.textContent = "Votre établissement";
+  previewCompetences.textContent = "Vos compétences";
+  previewExperience.textContent = "Votre expérience professionnelle";
+
+  previewPhoto.src = "";
+});
