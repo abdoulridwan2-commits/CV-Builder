@@ -70,3 +70,14 @@ experienceInput.addEventListener("input", function () {
   previewExperience.textContent =
     experienceInput.value || "Votre expérience professionnelle";
 });
+
+const photoInput = document.getElementById("photo");
+const previewPhoto = document.getElementById("previewPhoto");
+
+photoInput.addEventListener("change", function () {
+  const fichier = photoInput.files[0];
+
+  if (fichier) {
+    previewPhoto.src = URL.createObjectURL(fichier);
+  }
+});

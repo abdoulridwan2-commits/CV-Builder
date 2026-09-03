@@ -17,6 +17,8 @@
     <main>
       <!-- FORMULAIRE -->
       <section class="formulaire">
+        <label for="photo">Photo de profil</label>
+        <input type="file" id="photo" accept="image/*" />
         <h2>Mes informations</h2>
 
         <label for="nom">Nom complet</label>
@@ -70,6 +72,7 @@
         <h2>Aperçu du CV</h2>
 
         <div class="cv">
+          <img id="previewPhoto" src="" alt="Photo de profil" />
           <h1 id="previewNom">Votre nom</h1>
 
           <p id="previewEmail">Votre email</p>
