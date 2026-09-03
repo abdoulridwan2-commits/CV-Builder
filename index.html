@@ -58,11 +58,32 @@
 
         <h3>Expérience</h3>
 
-        <label for="experience">Expérience professionnelle</label>
-        <textarea
-          id="experience"
-          placeholder="Ex : Développeur web - Création de sites web..."
-        ></textarea>
+        <div id="experiencesContainer">
+          <div class="experience-form">
+            <label>Poste occupé</label>
+            <input
+              type="text"
+              class="poste"
+              placeholder="Ex : Développeur Web"
+            />
+
+            <label>Entreprise / Organisation</label>
+            <input
+              type="text"
+              class="entreprise"
+              placeholder="Ex : ABC Digital"
+            />
+
+            <label>Période</label>
+            <input type="text" class="periode" placeholder="Ex : 2025 - 2026" />
+
+            <label>Description</label>
+            <textarea
+              class="description"
+              placeholder="Décrivez vos missions et réalisations..."
+            ></textarea>
+          </div>
+        </div>
 
         <button type="button" id="ajouterExperience">
           + Ajouter une expérience
