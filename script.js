@@ -55,12 +55,28 @@ ecoleInput.addEventListener("input", function () {
 // COMPÉTENCES
 
 const competencesInput = document.getElementById("competences");
+
 const previewCompetences = document.getElementById("previewCompetences");
 
 competencesInput.addEventListener("input", function () {
-  previewCompetences.textContent = competencesInput.value || "Vos compétences";
-});
+  const competences = competencesInput.value.split(",");
 
+  previewCompetences.innerHTML = "";
+
+  competences.forEach(function (competence) {
+    const texte = competence.trim();
+
+    if (texte !== "") {
+      const badge = document.createElement("span");
+
+      badge.textContent = texte;
+
+      badge.classList.add("badge");
+
+      previewCompetences.appendChild(badge);
+    }
+  });
+});
 // EXPÉRIENCE
 
 const experienceInput = document.getElementById("experience");
