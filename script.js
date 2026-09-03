@@ -81,3 +81,21 @@ photoInput.addEventListener("change", function () {
     previewPhoto.src = URL.createObjectURL(fichier);
   }
 });
+
+// BOUTON GÉNÉRER LE CV
+
+const boutonGenerer = document.querySelector(".formulaire button");
+
+boutonGenerer.addEventListener("click", function () {
+  if (nomInput.value === "") {
+    alert("Veuillez entrer votre nom.");
+    return;
+  }
+
+  if (emailInput.value === "") {
+    alert("Veuillez entrer votre email.");
+    return;
+  }
+
+  alert("Votre CV a été généré avec succès !");
+});
