@@ -1,11 +1,13 @@
+```html
 <!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cv bulder</title>
+    <title>CV Builder</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <header>
       <h1>CV Builder</h1>
@@ -13,8 +15,8 @@
     </header>
 
     <main>
+      <!-- FORMULAIRE -->
       <section class="formulaire">
-        <h2>Mes informations</h2>
         <h2>Mes informations</h2>
 
         <label for="nom">Nom complet</label>
@@ -63,23 +65,39 @@
         <button type="button">Générer mon CV</button>
       </section>
 
+      <!-- APERÇU DU CV -->
       <section class="apercu">
         <h2>Aperçu du CV</h2>
 
         <div class="cv">
           <h1 id="previewNom">Votre nom</h1>
+
           <p id="previewEmail">Votre email</p>
+
           <p id="previewTelephone">Votre téléphone</p>
 
           <h3>Profil</h3>
+
           <p id="previewProfil">Votre profil professionnel</p>
 
           <h3>Formation</h3>
+
           <p id="previewFormation">Votre formation</p>
+
           <p id="previewEcole">Votre établissement</p>
+
+          <h3>Compétences</h3>
+
+          <p id="previewCompetences">Vos compétences</p>
+
+          <h3>Expérience</h3>
+
+          <p id="previewExperience">Votre expérience professionnelle</p>
         </div>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
+```
