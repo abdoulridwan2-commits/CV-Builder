@@ -146,3 +146,18 @@ boutonReset.addEventListener("click", function () {
 
   previewPhoto.src = "";
 });
+
+// AJOUTER UNE EXPÉRIENCE
+
+const boutonExperience = document.getElementById("ajouterExperience");
+
+boutonExperience.addEventListener("click", function () {
+  const nouvelleExperience = document.createElement("textarea");
+
+  nouvelleExperience.placeholder =
+    "Décrivez une autre expérience professionnelle";
+
+  nouvelleExperience.classList.add("experienceSupplementaire");
+
+  boutonExperience.before(nouvelleExperience);
+});
