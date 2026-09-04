@@ -1,83 +1,152 @@
-```html
 <!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>CV Builder</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- ==============================
+       HEADER
+       ============================== -->
+
     <header>
       <h1>CV Builder</h1>
+
       <p>Créez votre CV professionnel facilement</p>
     </header>
 
+    <!-- ==============================
+       CONTENU PRINCIPAL
+       ============================== -->
+
     <main>
-      <!-- FORMULAIRE -->
+      <!-- ==============================
+         FORMULAIRE
+         ============================== -->
+
       <section class="formulaire">
-        <label for="photo">Photo de profil</label>
-        <input type="file" id="photo" accept="image/*" />
         <h2>Mes informations</h2>
 
-        <label for="nom">Nom complet</label>
+        <!-- ==============================
+           PHOTO
+           ============================== -->
+
+        <label class="titre-photo"> Photo de profil </label>
+
+        <div class="photo-upload">
+          <label for="photo" class="photo-label">
+            <span class="photo-icon"> 📷 </span>
+
+            <span class="photo-text"> Cliquez pour importer une photo </span>
+
+            <span class="photo-format"> JPG, PNG ou WebP </span>
+          </label>
+
+          <input type="file" id="photo" accept="image/*" />
+        </div>
+
+        <!-- ==============================
+           INFORMATIONS PERSONNELLES
+           ============================== -->
+
+        <h3>Informations personnelles</h3>
+
+        <label for="nom"> Nom complet </label>
+
         <input type="text" id="nom" placeholder="Ex : Abdoulaye Ridwan" />
 
-        <label for="email">Email</label>
+        <label for="email"> Email </label>
+
         <input type="email" id="email" placeholder="Ex : exemple@gmail.com" />
 
-        <label for="telephone">Téléphone</label>
+        <label for="telephone"> Téléphone </label>
+
         <input type="tel" id="telephone" placeholder="Ex : +228 XX XX XX XX" />
 
-        <label for="profil">Profil</label>
+        <!-- ==============================
+           PROFIL
+           ============================== -->
+
+        <h3>Profil</h3>
+
+        <label for="profil"> Présentation </label>
+
         <textarea
           id="profil"
           placeholder="Présentez-vous en quelques lignes"
         ></textarea>
 
+        <!-- ==============================
+           FORMATION
+           ============================== -->
+
         <h3>Formation</h3>
 
-        <label for="formation">Formation</label>
+        <label for="formation"> Formation </label>
+
         <input
           type="text"
           id="formation"
           placeholder="Ex : Licence en Géographie"
         />
 
-        <label for="ecole">Établissement</label>
+        <label for="ecole"> Établissement </label>
+
         <input type="text" id="ecole" placeholder="Ex : Université de Kara" />
+
+        <!-- ==============================
+           COMPÉTENCES
+           ============================== -->
 
         <h3>Compétences</h3>
 
-        <label for="competences">Compétences</label>
+        <label for="competences"> Compétences </label>
+
         <textarea
           id="competences"
           placeholder="Ex : HTML, CSS, JavaScript"
         ></textarea>
 
-        <h3>Expérience</h3>
+        <small class="aide-competences">
+          Séparez vos compétences par des virgules.
+        </small>
+
+        <!-- ==============================
+           EXPÉRIENCES
+           ============================== -->
+
+        <h3>Expérience professionnelle</h3>
 
         <div id="experiencesContainer">
           <div class="experience-form">
-            <label>Poste occupé</label>
+            <label> Poste occupé </label>
+
             <input
               type="text"
               class="poste"
               placeholder="Ex : Développeur Web"
             />
 
-            <label>Entreprise / Organisation</label>
+            <label> Entreprise / Organisation </label>
+
             <input
               type="text"
               class="entreprise"
               placeholder="Ex : ABC Digital"
             />
 
-            <label>Période</label>
+            <label> Période </label>
+
             <input type="text" class="periode" placeholder="Ex : 2025 - 2026" />
 
-            <label>Description</label>
+            <label> Description </label>
+
             <textarea
               class="description"
               placeholder="Décrivez vos missions et réalisations..."
@@ -85,46 +154,116 @@
           </div>
         </div>
 
-        <button type="button" id="ajouterExperience">
+        <!-- ==============================
+           AJOUTER UNE EXPÉRIENCE
+           ============================== -->
+
+        <button type="button" id="ajouterExperience" class="btn-secondaire">
           + Ajouter une expérience
         </button>
 
-        <button type="button">Générer mon CV</button>
-        <button type="button" id="imprimerCV">Télécharger mon CV en PDF</button>
-        <button type="button" id="resetCV">Réinitialiser</button>
+        <!-- ==============================
+           GÉNÉRER
+           ============================== -->
+
+        <button type="button" id="genererCV" class="btn-principal">
+          Générer mon CV
+        </button>
+
+        <!-- ==============================
+           PDF
+           ============================== -->
+
+        <button type="button" id="imprimerCV" class="btn-pdf">
+          Télécharger mon CV en PDF
+        </button>
+
+        <!-- ==============================
+           RESET
+           ============================== -->
+
+        <button type="button" id="resetCV" class="btn-reset">
+          Réinitialiser
+        </button>
       </section>
 
-      <!-- APERÇU DU CV -->
+      <!-- ==============================
+         APERÇU
+         ============================== -->
+
       <section class="apercu">
         <h2>Aperçu du CV</h2>
 
         <div class="cv">
-          <img id="previewPhoto" src="" alt="Photo de profil" />
-          <h1 id="previewNom">Votre nom</h1>
+          <!-- ==============================
+             EN-TÊTE DU CV
+             ============================== -->
 
-          <p id="previewEmail">Votre email</p>
+          <div class="cv-header">
+            <!-- PHOTO -->
 
-          <p id="previewTelephone">Votre téléphone</p>
+            <div class="cv-photo-container">
+              <img id="previewPhoto" src="" alt="Photo de profil" />
+            </div>
 
-          <h3>Profil</h3>
+            <!-- IDENTITÉ -->
 
-          <p id="previewProfil">Votre profil professionnel</p>
+            <div class="cv-identite">
+              <h1 id="previewNom">Votre nom</h1>
 
-          <h3>Formation</h3>
+              <p id="previewEmail" class="coordonnees">Votre email</p>
 
-          <p id="previewFormation">Votre formation</p>
-
-          <p id="previewEcole">Votre établissement</p>
-
-          <h3>Compétences</h3>
-
-          <div id="previewCompetences" class="competences-container">
-            Vos compétences
+              <p id="previewTelephone" class="coordonnees">Votre téléphone</p>
+            </div>
           </div>
 
-          <h3>Expérience</h3>
+          <!-- ==============================
+             PROFIL
+             ============================== -->
 
-          <p id="previewExperience">Votre expérience professionnelle</p>
+          <div class="cv-section">
+            <h3>Profil</h3>
+
+            <p id="previewProfil">Votre profil professionnel</p>
+          </div>
+
+          <!-- ==============================
+             FORMATION
+             ============================== -->
+
+          <div class="cv-section">
+            <h3>Formation</h3>
+
+            <div class="formation-preview">
+              <strong id="previewFormation"> Votre formation </strong>
+
+              <p id="previewEcole">Votre établissement</p>
+            </div>
+          </div>
+
+          <!-- ==============================
+             COMPÉTENCES
+             ============================== -->
+
+          <div class="cv-section">
+            <h3>Compétences</h3>
+
+            <div id="previewCompetences" class="competences-container">
+              <span class="texte-vide"> Vos compétences </span>
+            </div>
+          </div>
+
+          <!-- ==============================
+             EXPÉRIENCE
+             ============================== -->
+
+          <div class="cv-section">
+            <h3>Expérience professionnelle</h3>
+
+            <div id="previewExperience">
+              <p class="texte-vide">Votre expérience professionnelle</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -132,4 +271,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-```

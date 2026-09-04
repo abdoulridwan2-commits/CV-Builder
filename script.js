@@ -3,6 +3,7 @@
 // ==============================
 
 const nomInput = document.getElementById("nom");
+
 const previewNom = document.getElementById("previewNom");
 
 nomInput.addEventListener("input", function () {
@@ -14,6 +15,7 @@ nomInput.addEventListener("input", function () {
 // ==============================
 
 const emailInput = document.getElementById("email");
+
 const previewEmail = document.getElementById("previewEmail");
 
 emailInput.addEventListener("input", function () {
@@ -25,6 +27,7 @@ emailInput.addEventListener("input", function () {
 // ==============================
 
 const telephoneInput = document.getElementById("telephone");
+
 const previewTelephone = document.getElementById("previewTelephone");
 
 telephoneInput.addEventListener("input", function () {
@@ -36,6 +39,7 @@ telephoneInput.addEventListener("input", function () {
 // ==============================
 
 const profilInput = document.getElementById("profil");
+
 const previewProfil = document.getElementById("previewProfil");
 
 profilInput.addEventListener("input", function () {
@@ -47,6 +51,7 @@ profilInput.addEventListener("input", function () {
 // ==============================
 
 const formationInput = document.getElementById("formation");
+
 const previewFormation = document.getElementById("previewFormation");
 
 formationInput.addEventListener("input", function () {
@@ -58,6 +63,7 @@ formationInput.addEventListener("input", function () {
 // ==============================
 
 const ecoleInput = document.getElementById("ecole");
+
 const previewEcole = document.getElementById("previewEcole");
 
 ecoleInput.addEventListener("input", function () {
@@ -73,31 +79,83 @@ const competencesInput = document.getElementById("competences");
 const previewCompetences = document.getElementById("previewCompetences");
 
 competencesInput.addEventListener("input", function () {
+  /*
+      Récupérer les compétences.
+
+      Exemple :
+
+      HTML, CSS, JavaScript
+
+      devient :
+
+      ["HTML", " CSS", " JavaScript"]
+    */
+
   const competences = competencesInput.value.split(",");
 
+  /*
+      Vider l'ancien aperçu.
+    */
+
   previewCompetences.innerHTML = "";
+
+  /*
+      Parcourir les compétences.
+    */
 
   competences.forEach(function (competence) {
     const texte = competence.trim();
 
+    /*
+          Vérifier que la compétence
+          n'est pas vide.
+        */
+
     if (texte !== "") {
+      /*
+            Créer le badge.
+          */
+
       const badge = document.createElement("span");
+
+      /*
+            Ajouter le texte.
+          */
 
       badge.textContent = texte;
 
+      /*
+            Ajouter la classe CSS.
+          */
+
       badge.classList.add("badge");
+
+      /*
+            Ajouter le badge au CV.
+          */
 
       previewCompetences.appendChild(badge);
     }
   });
 
+  /*
+      Si aucune compétence
+      n'est renseignée.
+    */
+
   if (previewCompetences.innerHTML === "") {
-    previewCompetences.textContent = "Vos compétences";
+    previewCompetences.innerHTML = `
+
+        <span class="texte-vide">
+          Vos compétences
+        </span>
+
+      `;
   }
 });
 
 // ==============================
-// EXPÉRIENCES PROFESSIONNELLES
+// EXPÉRIENCES
 // ==============================
 
 const experiencesContainer = document.getElementById("experiencesContainer");
@@ -106,22 +164,57 @@ const ajouterExperience = document.getElementById("ajouterExperience");
 
 const previewExperience = document.getElementById("previewExperience");
 
-// Fonction qui met à jour l'aperçu
+// ==============================
+// AFFICHER LES EXPÉRIENCES
+// ==============================
+
 function afficherExperiences() {
+  /*
+    Récupérer toutes les expériences.
+  */
+
   const experiences = document.querySelectorAll(".experience-form");
+
+  /*
+    Nettoyer l'ancien aperçu.
+  */
 
   previewExperience.innerHTML = "";
 
-  experiences.forEach(function (experience, index) {
+  /*
+    Parcourir les expériences.
+  */
+
+  experiences.forEach(function (experience) {
+    /*
+        Récupérer le poste.
+      */
+
     const poste = experience.querySelector(".poste").value.trim();
+
+    /*
+        Récupérer l'entreprise.
+      */
 
     const entreprise = experience.querySelector(".entreprise").value.trim();
 
+    /*
+        Récupérer la période.
+      */
+
     const periode = experience.querySelector(".periode").value.trim();
+
+    /*
+        Récupérer la description.
+      */
 
     const description = experience.querySelector(".description").value.trim();
 
-    // Si l'expérience est complètement vide
+    /*
+        Si tout est vide,
+        on ignore cette expérience.
+      */
+
     if (
       poste === "" &&
       entreprise === "" &&
@@ -131,69 +224,119 @@ function afficherExperiences() {
       return;
     }
 
+    /*
+        Créer le bloc HTML.
+      */
+
     const experienceElement = document.createElement("div");
+
+    /*
+        Ajouter la classe CSS.
+      */
 
     experienceElement.classList.add("experience-preview");
 
+    /*
+        Ajouter les informations.
+      */
+
     experienceElement.innerHTML = `
 
-      <strong>${poste || "Poste occupé"}</strong>
+        <strong>
+          ${poste || "Poste occupé"}
+        </strong>
 
-      <br>
+        <div class="entreprise-preview">
+          ${entreprise || "Entreprise / Organisation"}
+        </div>
 
-      ${entreprise || "Entreprise / Organisation"}
+        <div class="periode-preview">
+          ${periode || "Période"}
+        </div>
 
-      <br>
+        <div class="description-preview">
+          ${description || "Description de l'expérience"}
+        </div>
 
-      ${periode || "Période"}
+      `;
 
-      <br><br>
-
-      ${description || "Description de l'expérience"}
-
-      <br><br>
-
-    `;
+    /*
+        Ajouter au CV.
+      */
 
     previewExperience.appendChild(experienceElement);
   });
 
-  // Si aucune expérience n'est remplie
+  /*
+    Texte par défaut.
+  */
+
   if (previewExperience.innerHTML === "") {
-    previewExperience.textContent = "Votre expérience professionnelle";
+    previewExperience.innerHTML = `
+
+      <p class="texte-vide">
+        Votre expérience professionnelle
+      </p>
+
+    `;
   }
 }
 
-// Écouter les changements dans les expériences
+// ==============================
+// ACTIVER UNE EXPÉRIENCE
+// ==============================
+
 function activerExperience(experienceForm) {
+  /*
+    Récupérer les champs.
+  */
+
   const champs = experienceForm.querySelectorAll("input, textarea");
+
+  /*
+    Ajouter l'événement input
+    à chaque champ.
+  */
 
   champs.forEach(function (champ) {
     champ.addEventListener("input", afficherExperiences);
   });
 }
 
-// Activer la première expérience
+// ==============================
+// PREMIÈRE EXPÉRIENCE
+// ==============================
+
 const premiereExperience = document.querySelector(".experience-form");
 
 activerExperience(premiereExperience);
 
 // ==============================
-// AJOUTER UNE NOUVELLE EXPÉRIENCE
+// AJOUTER UNE EXPÉRIENCE
 // ==============================
 
 ajouterExperience.addEventListener("click", function () {
+  /*
+      Créer un nouveau div.
+    */
+
   const nouvelleExperience = document.createElement("div");
+
+  /*
+      Ajouter la classe.
+    */
 
   nouvelleExperience.classList.add("experience-form");
 
+  /*
+      Créer les champs.
+    */
+
   nouvelleExperience.innerHTML = `
 
-      <hr>
-
-      <h4>Nouvelle expérience</h4>
-
-      <label>Poste occupé</label>
+      <label>
+        Poste occupé
+      </label>
 
       <input
         type="text"
@@ -202,7 +345,9 @@ ajouterExperience.addEventListener("click", function () {
       />
 
 
-      <label>Entreprise / Organisation</label>
+      <label>
+        Entreprise / Organisation
+      </label>
 
       <input
         type="text"
@@ -211,7 +356,9 @@ ajouterExperience.addEventListener("click", function () {
       />
 
 
-      <label>Période</label>
+      <label>
+        Période
+      </label>
 
       <input
         type="text"
@@ -220,7 +367,9 @@ ajouterExperience.addEventListener("click", function () {
       />
 
 
-      <label>Description</label>
+      <label>
+        Description
+      </label>
 
       <textarea
         class="description"
@@ -229,15 +378,19 @@ ajouterExperience.addEventListener("click", function () {
 
     `;
 
+  /*
+      Ajouter l'expérience
+      au formulaire.
+    */
+
   experiencesContainer.appendChild(nouvelleExperience);
 
-  // Activer les champs de la nouvelle expérience
+  /*
+      Activer les événements.
+    */
+
   activerExperience(nouvelleExperience);
 });
-
-// ==============================
-// PHOTO
-// ==============================
 
 // ==============================
 // PHOTO
@@ -248,12 +401,24 @@ const photoInput = document.getElementById("photo");
 const previewPhoto = document.getElementById("previewPhoto");
 
 photoInput.addEventListener("change", function () {
+  /*
+      Récupérer le fichier.
+    */
+
   const fichier = photoInput.files[0];
 
-  if (fichier) {
-    previewPhoto.src = URL.createObjectURL(fichier);
+  /*
+      Vérifier qu'une photo
+      a été sélectionnée.
+    */
 
-    previewPhoto.style.display = "block";
+  if (fichier) {
+    /*
+        Créer une URL temporaire
+        pour afficher la photo.
+      */
+
+    previewPhoto.src = URL.createObjectURL(fichier);
   }
 });
 
@@ -261,11 +426,13 @@ photoInput.addEventListener("change", function () {
 // GÉNÉRER LE CV
 // ==============================
 
-const boutonGenerer = document.querySelector(
-  ".formulaire button:not(#ajouterExperience):not(#imprimerCV):not(#resetCV)",
-);
+const boutonGenerer = document.getElementById("genererCV");
 
 boutonGenerer.addEventListener("click", function () {
+  /*
+      Vérifier le nom.
+    */
+
   if (nomInput.value.trim() === "") {
     alert("Veuillez entrer votre nom.");
 
@@ -273,6 +440,10 @@ boutonGenerer.addEventListener("click", function () {
 
     return;
   }
+
+  /*
+      Vérifier l'email.
+    */
 
   if (emailInput.value.trim() === "") {
     alert("Veuillez entrer votre email.");
@@ -282,16 +453,25 @@ boutonGenerer.addEventListener("click", function () {
     return;
   }
 
+  /*
+      Message de confirmation.
+    */
+
   alert("Votre CV a été généré avec succès !");
 });
 
 // ==============================
-// IMPRIMER / PDF
+// PDF
 // ==============================
 
 const boutonImprimer = document.getElementById("imprimerCV");
 
 boutonImprimer.addEventListener("click", function () {
+  /*
+      Ouvrir la fenêtre
+      d'impression du navigateur.
+    */
+
   window.print();
 });
 
@@ -302,15 +482,32 @@ boutonImprimer.addEventListener("click", function () {
 const boutonReset = document.getElementById("resetCV");
 
 boutonReset.addEventListener("click", function () {
-  // Vider tous les champs
+  /*
+      Vider les champs.
+    */
+
   document
-    .querySelectorAll(".formulaire input, .formulaire textarea")
+    .querySelectorAll(".formulaire input:not(#photo), .formulaire textarea")
     .forEach(function (champ) {
       champ.value = "";
     });
 
-  // Supprimer les expériences supplémentaires
+  /*
+      Réinitialiser la photo.
+    */
+
+  photoInput.value = "";
+
+  /*
+      Récupérer les expériences.
+    */
+
   const experiences = document.querySelectorAll(".experience-form");
+
+  /*
+      Garder uniquement
+      la première expérience.
+    */
 
   experiences.forEach(function (experience, index) {
     if (index > 0) {
@@ -318,23 +515,69 @@ boutonReset.addEventListener("click", function () {
     }
   });
 
-  // Réinitialiser l'aperçu
+  /*
+      Réinitialiser le nom.
+    */
+
   previewNom.textContent = "Votre nom";
+
+  /*
+      Réinitialiser l'email.
+    */
 
   previewEmail.textContent = "Votre email";
 
+  /*
+      Réinitialiser le téléphone.
+    */
+
   previewTelephone.textContent = "Votre téléphone";
+
+  /*
+      Réinitialiser le profil.
+    */
 
   previewProfil.textContent = "Votre profil professionnel";
 
+  /*
+      Réinitialiser la formation.
+    */
+
   previewFormation.textContent = "Votre formation";
+
+  /*
+      Réinitialiser l'établissement.
+    */
 
   previewEcole.textContent = "Votre établissement";
 
-  previewCompetences.textContent = "Vos compétences";
+  /*
+      Réinitialiser les compétences.
+    */
 
-  previewExperience.textContent = "Votre expérience professionnelle";
+  previewCompetences.innerHTML = `
+
+      <span class="texte-vide">
+        Vos compétences
+      </span>
+
+    `;
+
+  /*
+      Réinitialiser les expériences.
+    */
+
+  previewExperience.innerHTML = `
+
+      <p class="texte-vide">
+        Votre expérience professionnelle
+      </p>
+
+    `;
+
+  /*
+      Supprimer la photo.
+    */
 
   previewPhoto.src = "";
-  previewPhoto.style.display = "none";
 });

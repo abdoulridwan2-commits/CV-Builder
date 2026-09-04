@@ -1,108 +1,338 @@
+/* ==============================
+   RESET
+   ============================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f8;
-  color: #222;
+/* ==============================
+   COULEURS DU PROJET
+   ============================== */
+
+:root {
+  --fond: #08090b;
+
+  --carte: #121417;
+
+  --carte-claire: #181b1f;
+
+  --champagne: #c9a96e;
+
+  --champagne-clair: #e0c48b;
+
+  --blanc: #ffffff;
+
+  --texte: #d6d8dc;
+
+  --texte-secondaire: #9298a1;
+
+  --bordure: #2b2f35;
+
+  --gris-photo: #656b73;
 }
 
-/* HEADER DU SITE */
+/* ==============================
+   PAGE
+   ============================== */
+
+body {
+  font-family: Arial, sans-serif;
+
+  background: radial-gradient(
+    circle at top,
+    #181a1e 0%,
+    #0b0c0f 45%,
+    #050607 100%
+  );
+
+  color: var(--blanc);
+
+  min-height: 100vh;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
 
 header {
   text-align: center;
-  padding: 30px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
+
+  padding: 30px 20px;
+
+  background: rgba(8, 9, 11, 0.9);
+
+  border-bottom: 1px solid var(--bordure);
 }
 
 header h1 {
-  margin-bottom: 10px;
-  font-size: 32px;
+  font-size: 34px;
+
+  margin-bottom: 8px;
+
+  color: var(--blanc);
+
+  letter-spacing: 0.5px;
 }
 
 header p {
-  color: #666;
+  color: var(--texte-secondaire);
+
+  font-size: 15px;
 }
 
-/* CONTENU PRINCIPAL */
+/* ==============================
+   CONTENU PRINCIPAL
+   ============================== */
 
 main {
-  width: 90%;
-  max-width: 1200px;
+  width: 92%;
+
+  max-width: 1250px;
+
   margin: 30px auto;
 
   display: grid;
+
   grid-template-columns: 1fr 1fr;
 
-  gap: 30px;
+  gap: 28px;
+
+  align-items: start;
 }
 
-/* FORMULAIRE ET APERÇU */
+/* ==============================
+   CARTES
+   ============================== */
 
 .formulaire,
 .apercu {
-  background-color: white;
-  padding: 25px;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #15181c, #0e1013);
 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--bordure);
+
+  border-radius: 14px;
+
+  padding: 25px;
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
 }
 
-/* TITRES */
+/* ==============================
+   TITRES
+   ============================== */
 
 .formulaire h2,
 .apercu h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 23px;
+
+  margin-bottom: 22px;
+
+  color: var(--blanc);
 }
 
 .formulaire h3 {
-  margin-top: 25px;
+  color: var(--champagne);
+
+  font-size: 17px;
+
+  margin-top: 26px;
+
   margin-bottom: 15px;
-  color: #2563eb;
+
+  letter-spacing: 0.3px;
 }
 
-/* LABELS */
+/* ==============================
+   LABELS
+   ============================== */
 
 .formulaire label {
   display: block;
+
   margin-bottom: 8px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  color: #e6e7e9;
+}
+
+/* ==============================
+   PHOTO
+   ============================== */
+
+.titre-photo {
+  margin-bottom: 10px !important;
+}
+
+.photo-upload {
+  width: 100%;
+
+  margin-bottom: 23px;
+}
+
+.photo-label {
+  width: 100%;
+
+  min-height: 155px;
+
+  border: 1px dashed #50555d;
+
+  border-radius: 10px;
+
+  background: linear-gradient(145deg, #1b1e22, #141619);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.photo-label:hover {
+  background: #202328;
+
+  border-color: var(--champagne);
+
+  transform: translateY(-1px);
+}
+
+.photo-icon {
+  width: 45px;
+
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: #30343a;
+
+  border: 1px solid #4b5058;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 20px;
+
+  margin-bottom: 10px;
+}
+
+.photo-text {
+  color: var(--blanc);
+
+  font-size: 15px;
+
   font-weight: bold;
 }
 
-/* CHAMPS */
+.photo-format {
+  color: var(--texte-secondaire);
 
-.formulaire input,
+  font-size: 12px;
+
+  margin-top: 6px;
+}
+
+#photo {
+  display: none;
+}
+
+/* ==============================
+   CHAMPS
+   ============================== */
+
+.formulaire input:not([type="file"]),
 .formulaire textarea {
   width: 100%;
 
-  padding: 12px;
+  padding: 12px 13px;
 
   margin-bottom: 15px;
 
-  border: 1px solid #ccc;
+  border: 1px solid #353a42;
 
   border-radius: 7px;
 
-  font-size: 15px;
+  background: #1a1d21;
+
+  color: var(--blanc);
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.formulaire input::placeholder,
+.formulaire textarea::placeholder {
+  color: #707680;
 }
 
 .formulaire input:focus,
 .formulaire textarea:focus {
   outline: none;
-  border-color: #2563eb;
+
+  border-color: var(--champagne);
+
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
 }
 
 .formulaire textarea {
   min-height: 100px;
+
   resize: vertical;
 }
 
-/* BOUTONS */
+/* ==============================
+   AIDE
+   ============================== */
+
+.aide-competences {
+  display: block;
+
+  margin-top: -8px;
+
+  margin-bottom: 15px;
+
+  color: #777d86;
+
+  font-size: 12px;
+}
+
+/* ==============================
+   EXPÉRIENCES
+   ============================== */
+
+.experience-form {
+  margin-bottom: 20px;
+}
+
+.experience-form + .experience-form {
+  border-top: 1px solid var(--bordure);
+
+  padding-top: 20px;
+}
+
+.experience-form hr {
+  display: none;
+}
+
+/* ==============================
+   BOUTONS
+   ============================== */
 
 .formulaire button {
   width: 100%;
@@ -111,135 +341,342 @@ main {
 
   margin-top: 10px;
 
-  border: none;
+  border-radius: 8px;
 
-  border-radius: 7px;
-
-  background-color: #2563eb;
-
-  color: white;
-
-  font-size: 16px;
+  font-size: 15px;
 
   font-weight: bold;
 
   cursor: pointer;
+
+  transition: 0.2s;
 }
 
-.formulaire button:hover {
-  background-color: #1d4ed8;
+/* ==============================
+   AJOUTER EXPÉRIENCE
+   ============================== */
+
+.btn-secondaire {
+  background: #1c1f23;
+
+  color: var(--champagne-clair);
+
+  border: 1px solid #4a4336;
 }
 
-/* CV */
+.btn-secondaire:hover {
+  background: #252820;
+
+  border-color: var(--champagne);
+
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   GÉNÉRER
+   ============================== */
+
+.btn-principal {
+  border: none;
+
+  background: linear-gradient(135deg, #b08a4d, #d1ad6c);
+
+  color: #17130d;
+
+  box-shadow: 0 5px 15px rgba(201, 169, 110, 0.12);
+}
+
+.btn-principal:hover {
+  background: linear-gradient(135deg, #c09a5a, #e0bd78);
+
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   PDF
+   ============================== */
+
+.btn-pdf {
+  background: #1b1e22;
+
+  color: #e2e3e5;
+
+  border: 1px solid #454a52;
+}
+
+.btn-pdf:hover {
+  background: #25292e;
+
+  border-color: #70757d;
+
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   RESET
+   ============================== */
+
+.btn-reset {
+  background: #191b1e;
+
+  color: #9da2aa;
+
+  border: 1px solid #30343a;
+}
+
+.btn-reset:hover {
+  background: #24272b;
+
+  color: #ffffff;
+}
+
+/* ==============================
+   CV
+   ============================== */
 
 .cv {
-  background-color: white;
+  background: linear-gradient(145deg, #0f1114, #090a0c);
 
-  padding: 35px;
+  border: 1px solid #30343a;
 
-  min-height: 600px;
+  border-radius: 10px;
 
-  border: 1px solid #ddd;
+  padding: 30px;
 
-  border-radius: 8px;
+  min-height: 650px;
+
+  color: var(--blanc);
 }
 
-/* PHOTO */
+/* ==============================
+   EN-TÊTE CV
+   ============================== */
+
+.cv-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+  margin-bottom: 25px;
+}
+
+/* ==============================
+   PHOTO CV
+   ============================== */
+
+.cv-photo-container {
+  flex-shrink: 0;
+}
 
 .cv img {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+
+  height: 110px;
 
   object-fit: cover;
 
+  object-position: center;
+
   border-radius: 50%;
 
-  margin-bottom: 15px;
+  display: block;
 
-  border: 4px solid #2563eb;
+  border: 3px solid var(--gris-photo);
+
+  background: #181b1f;
 }
 
-/* NOM */
+/* ==============================
+   IDENTITÉ
+   ============================== */
 
-.cv h1 {
-  margin-bottom: 10px;
-
+.cv-identite h1 {
   font-size: 30px;
 
-  color: #111827;
+  margin-bottom: 12px;
+
+  color: var(--blanc);
+
+  text-align: left;
+
+  letter-spacing: 0.3px;
 }
 
-/* COORDONNÉES */
-
-.cv > p {
+.coordonnees {
   margin-bottom: 6px;
 
-  color: #555;
+  color: #aeb3bb;
+
+  font-size: 14px;
 
   line-height: 1.5;
+
+  text-align: left;
 }
 
-/* SECTIONS DU CV */
+/* ==============================
+   SECTIONS CV
+   ============================== */
 
-.cv h3 {
-  margin-top: 28px;
-
-  margin-bottom: 10px;
-
-  padding-bottom: 6px;
-
-  border-bottom: 2px solid #2563eb;
-
-  color: #2563eb;
-
-  font-size: 18px;
+.cv-section {
+  margin-top: 25px;
 }
 
-/* TEXTES */
+.cv-section h3 {
+  color: var(--champagne);
 
-.cv p {
+  font-size: 16px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 9px;
+
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid #5a4a31;
+}
+
+.cv-section > p {
+  color: var(--texte);
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  text-align: left;
+}
+
+/* ==============================
+   FORMATION
+   ============================== */
+
+.formation-preview strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  margin-bottom: 5px;
+}
+
+.formation-preview p {
+  color: #969ca5;
+
+  font-size: 14px;
+}
+
+/* ==============================
+   COMPÉTENCES
+   ============================== */
+
+.competences-container {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-start;
+
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  border-radius: 6px;
+
+  background: #25272a;
+
+  border: 1px solid #575047;
+
+  color: #e1c58e;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.badge:hover {
+  background: #302e29;
+
+  border-color: var(--champagne);
+}
+
+.texte-vide {
+  color: #777d86;
+
+  font-size: 14px;
+}
+
+/* ==============================
+   EXPÉRIENCES APERÇU
+   ============================== */
+
+.experience-preview {
+  margin-bottom: 18px;
+
+  padding-left: 13px;
+
+  border-left: 2px solid #756040;
+
+  color: #cbd0d6;
+
   line-height: 1.6;
+
+  font-size: 14px;
+
+  text-align: left;
 }
 
-/* RESPONSIVE */
+.experience-preview strong {
+  display: block;
 
-@media (max-width: 800px) {
+  color: #ffffff;
+
+  font-size: 16px;
+
+  margin-bottom: 3px;
+}
+
+.experience-preview .entreprise-preview {
+  color: #d1b47c;
+
+  font-weight: bold;
+}
+
+.experience-preview .periode-preview {
+  color: #898f98;
+
+  font-size: 13px;
+}
+
+.experience-preview .description-preview {
+  margin-top: 6px;
+
+  color: #cbd0d6;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 900px) {
   main {
     grid-template-columns: 1fr;
   }
 }
 
-/* IMPRESSION / PDF */
-
-@media print {
-  body {
-    background-color: white;
-  }
-
-  header,
-  .formulaire,
-  .apercu > h2 {
-    display: none;
-  }
-
-  main {
-    display: block;
-    width: 100%;
-    margin: 0;
-  }
-
-  .apercu {
-    padding: 0;
-    box-shadow: none;
-  }
-
-  .cv {
-    border: none;
-    box-shadow: none;
-    width: 100%;
-    min-height: auto;
-  }
-}
+/* ==============================
+   MOBILE
+   ============================== */
 
 @media (max-width: 600px) {
   body {
@@ -247,16 +684,18 @@ main {
   }
 
   header {
-    padding: 20px;
+    padding: 23px 15px;
   }
 
   header h1 {
-    font-size: 26px;
+    font-size: 27px;
   }
 
   main {
-    width: 95%;
+    width: 94%;
+
     margin: 20px auto;
+
     gap: 20px;
   }
 
@@ -266,69 +705,26 @@ main {
   }
 
   .cv {
-    padding: 25px 18px;
+    padding: 22px 17px;
   }
 
-  .cv h1 {
-    font-size: 25px;
+  .cv-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
   }
 
   .cv img {
-    width: 100px;
-    height: 100px;
+    width: 95px;
+
+    height: 95px;
   }
-}
 
-/* COMPÉTENCES */
-
-.competences-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.badge {
-  display: inline-block;
-
-  padding: 7px 12px;
-
-  background-color: #2563eb;
-
-  color: white;
-
-  border-radius: 20px;
-
-  font-size: 14px;
-
-  font-weight: bold;
-} /* ==============================
-   EXPÉRIENCES PROFESSIONNELLES
-   ============================== */
-
-.experience-form {
-  margin-bottom: 20px;
-}
-
-.experience-form hr {
-  margin: 25px 0;
-  border: none;
-  border-top: 1px solid #ddd;
-}
-
-.experience-form h4 {
-  margin-bottom: 15px;
-  color: #2563eb;
-  font-size: 17px;
-}
-
-.experience-preview {
-  margin-bottom: 18px;
-  line-height: 1.6;
-}
-
-.experience-preview strong {
-  font-size: 17px;
-  color: #111827;
+  .cv-identite h1 {
+    font-size: 25px;
+  }
 }
 
 /* ==============================
@@ -338,11 +734,15 @@ main {
 @media print {
   @page {
     size: A4;
+
     margin: 10mm;
   }
 
   body {
-    background-color: white;
+    background: #ffffff;
+
+    color: #222222;
+
     font-size: 12px;
   }
 
@@ -354,68 +754,181 @@ main {
 
   main {
     display: block;
+
     width: 100%;
+
     margin: 0;
   }
 
   .apercu {
     padding: 0;
+
+    background: #ffffff;
+
+    border: none;
+
     box-shadow: none;
-    background: white;
   }
 
   .cv {
     width: 100%;
+
     min-height: auto;
-    padding: 15px;
+
+    padding: 10px;
+
+    background: #ffffff;
+
+    color: #222222;
+
     border: none;
+
     box-shadow: none;
+
+    border-radius: 0;
+  }
+
+  /* ==========================
+     EN-TÊTE PDF
+     ========================== */
+
+  .cv-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 15px;
   }
 
   .cv img {
     width: 90px;
+
     height: 90px;
-    margin-bottom: 8px;
+
+    margin: 0;
+
+    border: 3px solid #777777;
   }
 
-  .cv h1 {
+  .cv-identite h1 {
     font-size: 24px;
-    margin-bottom: 6px;
+
+    margin-bottom: 5px;
+
+    color: #111111;
+
+    text-align: left;
   }
 
-  .cv > p {
-    margin-bottom: 3px;
+  .coordonnees {
+    margin-bottom: 2px;
+
     line-height: 1.3;
+
+    color: #555555;
+
+    text-align: left;
   }
 
-  .cv h3 {
-    font-size: 16px;
-    margin-top: 15px;
-    margin-bottom: 6px;
-    padding-bottom: 3px;
+  /* ==========================
+     SECTIONS PDF
+     ========================== */
+
+  .cv-section {
+    margin-top: 14px;
   }
 
-  .cv p {
-    line-height: 1.35;
-  }
-
-  .experience-preview {
-    margin-bottom: 8px;
-    line-height: 1.35;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-
-  .experience-preview strong {
+  .cv-section h3 {
     font-size: 15px;
+
+    margin-bottom: 5px;
+
+    padding-bottom: 3px;
+
+    color: #856a3d;
+
+    border-bottom: 1px solid #b49a70;
   }
+
+  .cv-section > p {
+    line-height: 1.35;
+
+    color: #333333;
+  }
+
+  /* ==========================
+     FORMATION PDF
+     ========================== */
+
+  .formation-preview strong {
+    color: #111111;
+
+    font-size: 14px;
+  }
+
+  .formation-preview p {
+    color: #555555;
+  }
+
+  /* ==========================
+     COMPÉTENCES PDF
+     ========================== */
 
   .competences-container {
     gap: 5px;
+
+    justify-content: flex-start;
   }
 
   .badge {
     padding: 4px 8px;
-    font-size: 11px;
+
+    font-size: 10px;
+
+    color: #4d4030;
+
+    background: #eeeeee;
+
+    border: 1px solid #b8a98d;
+  }
+
+  /* ==========================
+     EXPÉRIENCES PDF
+     ========================== */
+
+  .experience-preview {
+    margin-bottom: 8px;
+
+    padding-left: 8px;
+
+    line-height: 1.35;
+
+    color: #333333;
+
+    border-left: 2px solid #9c845d;
+
+    break-inside: avoid;
+
+    page-break-inside: avoid;
+  }
+
+  .experience-preview strong {
+    font-size: 14px;
+
+    color: #111111;
+  }
+
+  .experience-preview .entreprise-preview {
+    color: #856a3d;
+  }
+
+  .experience-preview .periode-preview {
+    color: #555555;
+  }
+
+  .experience-preview .description-preview {
+    color: #333333;
   }
 }
